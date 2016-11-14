@@ -61,7 +61,7 @@ def askform(request):
 
 def question_details(request, qid):
     if request.method == "POST":
-        return render('OK') # Workaround for bug in testing system
+        return HttpResponse('OK') # Workaround for bug in testing system
     else:
         try:
             if int(qid) < 1:
