@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 class QuestionManager(models.Manager):
     def new(self):
@@ -17,6 +18,9 @@ class Question(models.Model):
     author = models.ForeignKey(User)
     likes = models.ManyToManyField(User, related_name='likes_set')
     objects = QuestionManager()
+
+    def get_url(self):
+        return reverse('question-details', args=(self.id,))
 
     def __unicode__(self):
         return self.title

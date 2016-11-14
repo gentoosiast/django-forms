@@ -1,3 +1,7 @@
+# Add 'autofixture' to INSTALLED_APPS in ask/settings.py
+# ./manage.py shell
+# execfile('/home/box/autofixture.py')
+
 from autofixture import AutoFixture
 from qa.models import Answer
 
